@@ -27,11 +27,9 @@ public class TelevisionSetTest {
         assertEquals(-4, change);
     }
 
-    public void mute(){
-        TelevisionSet tv = new TelevisionSet();
-        boolean muted = tv.noVolume();
 
-    }
+
+
 
 
 }

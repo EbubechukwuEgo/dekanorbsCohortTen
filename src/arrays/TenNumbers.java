@@ -18,4 +18,6 @@ public class TenNumbers {
         System.out.println("The average of numbers in the array is: "+average);
 
     }
+
+
 }
