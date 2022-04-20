@@ -16,7 +16,7 @@ public class AccountTest {
     @Test
     public void accountCanBeCreatedWithAllDetailsTest(){
         Account account = new Account("2334", "Florence", "Funmi", "1232");
-        assertEquals("1212", account.getACCOUNT_NUMBERUMBER());
+        assertEquals("1212", account.getAccountNo());
         assertEquals("Florence Funmi", account.getAccountName());
     }
 
