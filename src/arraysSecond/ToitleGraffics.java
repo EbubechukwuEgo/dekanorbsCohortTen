@@ -1,6 +1,5 @@
 package arraysSecond;
 
-import javax.swing.text.Position;
 import java.util.Arrays;
 
 import static arraysSecond.Direction.*;
@@ -9,15 +8,15 @@ public class ToitleGraffics {
 
     private Pen biro = new Pen();
     private Direction currentDirection = EAST;
-    private arraysSecond.Position currentPosition;
+    private arraysSecond.Position currentPosition = new Position(0,0);
 
-    public static void main(String[] args) {
-        int[][] toitle = new int[20][20];
-
-
-
-
-    }
+//    public static void main(String[] args) {
+//        int[][] toitle = new int[20][20];
+//
+//
+//
+//
+//    }
 
     public void penDown(){
         biro.penDown();
@@ -27,8 +26,11 @@ public class ToitleGraffics {
         return biro.isDown();
     }
 
-    public void isPenUp() {
-         biro.penUp();
+    public void penUp(){
+        biro.penUp();
+    }
+    public boolean isPenUp() {
+        return true;
     }
 
     public Direction getCurrentDirection() {
@@ -41,6 +43,7 @@ public class ToitleGraffics {
     }
 
     public void turnLeft() {
+        if (currentDirection == NORTH) face(WEST);
         if (currentDirection == EAST) face(NORTH);
     }
 
@@ -48,15 +51,16 @@ public class ToitleGraffics {
         currentDirection = newDirection;
     }
 
-//    public void move(int noOfMoves) {
-//        if (currentDirection == EAST) increaseColumnBy(noOfMoves);
-//    }
+    public void move(int noOfMoves) {
+        if (currentDirection == EAST) increaseColumnBy(noOfMoves);
+    }
 
-//    private void increaseColumnBy(int noOfMoves) {
-//        currentDirection.setColumn();
-//    }
+    private void increaseColumnBy(int noOfMoves) {
+        int currentColumnPosition = currentPosition.getColumn();
+        currentPosition.setColumn(currentColumnPosition + noOfMoves - 1);
+    }
 
-//    public Position getCurrentPosition(){
-//        return currentPosition;
-//    }
+    public Position getCurrentPosition(){
+        return currentPosition;
+    }
 }

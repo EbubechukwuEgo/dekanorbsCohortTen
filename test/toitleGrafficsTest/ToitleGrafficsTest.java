@@ -1,11 +1,10 @@
 package toitleGrafficsTest;
 
 import arraysSecond.Direction;
+import arraysSecond.Position;
 import arraysSecond.ToitleGraffics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import javax.swing.text.Position;
 
 import static arraysSecond.Direction.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,29 +24,25 @@ public class ToitleGrafficsTest {
     }
 
     @Test
-    public void turtlePenIsDownByDefault(){
+    public void turtlePenIsUpByDefault(){
         boolean isPenDown = turtle.isPenDown();
-        assertNotNull(isPenDown);
+        assertFalse(isPenDown);
     }
 
     @Test
     public void turtleCanMovePenDown(){
-        turtle.isPenDown();
-        boolean isPenDown = turtle.isPenDown();
-//        assertTrue(isPenDown);
-    }
-
-    @Test
-    public void turtlePenIsUp(){
-        boolean isPenUp = turtle.isPenDown();
-        assertNotNull(isPenUp);
+        turtle.isPenUp();
+        assertTrue(turtle.isPenUp());
+        turtle.penDown();
+        assertTrue(turtle.isPenDown());
     }
 
     @Test
     public void turtlePenCanMoveUp(){
-        turtle.isPenUp();
-        turtle.isPenUp();
-//        assertTrue();
+        turtle.penDown();
+        assertTrue(turtle.isPenDown());
+        turtle.penUp();
+        assertFalse(turtle.isPenDown());
     }
 
     @Test
@@ -74,10 +69,30 @@ public class ToitleGrafficsTest {
         assertEquals(NORTH, turtle.getCurrentDirection());
     }
 
-//    @Test
-//    public void turtleCanMoveForwardFacingEast(){
-//        turtle.move(4);
-//        assertEquals(new Position(0, 4), turtle.getCurrentDirection());
-//    }
+    @Test
+    public void turtleCanTurnLeftWhileFacingNorth(){
+        turtle.turnLeft();
+        turtle.turnLeft();
+        assertEquals(WEST, turtle.getCurrentDirection());
+    }
+
+    @Test
+    public void turtleCanMoveForwardFacingEast(){
+        turtle.move(3);
+        assertEquals(new Position(0,2), turtle.getCurrentPosition());
+        turtle.move(2);
+        assertEquals(new Position(0,3), turtle.getCurrentPosition());
+    }
+
+    @Test
+    public void turtleCanMoveForwardFacingSouth(){
+        turtle.turnRight();
+        assertSame(SOUTH, turtle.getCurrentDirection());
+
+        turtle.move(3);
+        assertEquals(new Position(2,0), turtle.getCurrentPosition());
+        turtle.move(2);
+        assertEquals(new Position(3,0), turtle.getCurrentPosition());
+    }
 
 }

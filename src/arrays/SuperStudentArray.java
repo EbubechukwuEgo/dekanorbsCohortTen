@@ -5,21 +5,34 @@ import java.util.Scanner;
 
 public class SuperStudentArray {
     public static void main(String[] args) {
+        helloMessage();
+        userInput();
+    }
+
+    private static void helloMessage() {
+        System.out.println("=========================================================================================");
+
+        System.out.println("Hello. Welcome to the Student Array Advanced Edition. Enter Your Scores Here:");
+
+        System.out.println("=========================================================================================");
+    }
+
+    public static void userInput(){
         Scanner zoro = new Scanner(System.in);
 
         System.out.print("How many students are registered? ");
         int students = zoro.nextInt();
 
-        System.out.println("How many subjects are offered? ");
+        System.out.print("How many subjects are offered? ");
         int subjects = zoro.nextInt();
 
         int[][] grades = new int[students][subjects];
+        int[][] totalGrades = new int[students][subjects];
+        double[][] gradePointAverage = new double[students][subjects];
+
+        System.out.println("=========================================================================================");
 
         System.out.println(Arrays.deepToString(grades));
-
-        int total1 = 0;
-        int total2 = 0;
-        int total3 = 0;
 
         for (int a = 0; a < students; a++){
             int student = a+1;
@@ -29,16 +42,45 @@ public class SuperStudentArray {
                 System.out.printf("Subject %d: ", subject);
                 int grade = zoro.nextInt();
                 grades[a][b] = grade;
-                total1 += grades[0][b];
-                total2 += grades[1][b];
-                total3 += grades[2][b];
             }
             System.out.println(Arrays.deepToString(grades));
-            System.out.println(total1);
-            System.out.println(total2);
-            System.out.println(total3);
-
         }
+
+        for (int c = 0; c < students; c++){
+            int sum = 0;
+            for (int d = 0; d < subjects; d++){
+                sum+= grades[c][d];
+                totalGrades[c][0] = sum;
+                gradePointAverage[c][0] = (sum * 1.0)/ subjects;
+            }
+        }
+        System.out.println("=========================================================================================");
+
+        System.out.printf("%s", "STUDENTS ");
+
+        for (int e = 0; e < subjects; e++){
+            System.out.print("SUB" + (e +1) + " ");
+        }
+        System.out.print("TOTAL    AVERAGE    POSITION");
+        System.out.println();
+
+        for (int f = 0; f < students; f++){
+            System.out.print("Student " + (f + 1) + "  ");
+            for (int g = 0; g < subjects;g++){
+                System.out.print(grades[f][g] + "   ");
+            }
+
+            for (int g = 0; g < 1; g++){
+                System.out.print(totalGrades[f][g]+ "   ");
+            }
+
+            for (int g = 0; g < 1; g++){
+                System.out.printf("%.2f   ", gradePointAverage[f][g]);
+            }
+            System.out.println();
+        }
+
+        System.out.println("=========================================================================================");
     }
 
     //Highest scoring

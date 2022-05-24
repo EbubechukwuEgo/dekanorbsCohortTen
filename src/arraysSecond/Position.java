@@ -9,8 +9,26 @@ public class Position {
         this.column = column;
     }
 
-//    @Override
-//    public String toString(){
-//        return String.format();
-//    }
+    @Override
+    public String toString(){
+        return "Position{" +
+                "row= " + row +
+                ", column= "+ column +
+                "}";
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Position compared = (Position) obj;
+        if(compared.column == this.column && compared.row == this.row) return true;
+        return false;
+    }
+
+    public int getColumn() {
+        return column;
+    }
 }
