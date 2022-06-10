@@ -6,6 +6,7 @@ public class Entries {
 
     private Date date;
     private String title;
+    private String body;
 
     public Date getDate(){
         return date;
@@ -21,5 +22,13 @@ public class Entries {
 
     public void setTitle(String title){
         this.title = title;
+    }
+
+    public String getBody(){
+        return body;
+    }
+
+    public void setBody(String body){
+        this.body = body;
     }
 }

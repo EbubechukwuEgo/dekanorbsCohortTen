@@ -1,7 +1,5 @@
 package arraysSecond;
 
-import java.util.Arrays;
-
 import static arraysSecond.Direction.*;
 
 public class ToitleGraffics {
@@ -51,8 +49,25 @@ public class ToitleGraffics {
         currentDirection = newDirection;
     }
 
-    public void move(int noOfMoves) {
+    public void move(int noOfMoves, SketchPad sketchPad) {
+        if (isPenDown()) {
+            if (currentDirection == EAST) writeOnColumn(noOfMoves, sketchPad);
+        }
         if (currentDirection == EAST) increaseColumnBy(noOfMoves);
+    }
+
+    private void writeOnColumn(int noOfMoves, SketchPad sketchPad) {
+        int[][] floor = sketchPad.getFloor();
+        int row = currentPosition.getRow();
+        int column = currentPosition.getColumn();
+        noOfMoves += column;
+        for (int i = column; i < noOfMoves; i++){
+            floor[row][i] = 1;
+        }
+    }
+
+    private void writeOnColumn(){
+
     }
 
     private void increaseColumnBy(int noOfMoves) {

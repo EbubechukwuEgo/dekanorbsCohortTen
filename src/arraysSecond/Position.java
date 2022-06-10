@@ -21,6 +21,10 @@ public class Position {
         this.column = column;
     }
 
+    public void setRow(int row){
+        this.row = row;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Position compared = (Position) obj;
@@ -30,5 +34,9 @@ public class Position {
 
     public int getColumn() {
         return column;
+    }
+
+    public int getRow() {
+        return row;
     }
 }

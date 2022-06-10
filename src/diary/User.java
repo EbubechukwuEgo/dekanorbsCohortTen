@@ -6,6 +6,11 @@ public class User {
     private String accountName;
     private String password;
 
+    public User(String email, String name, String password){
+        this.email = email;
+        accountName = name;
+        this.password = password;
+    }
 
     public String getEmail() {
         return email;
