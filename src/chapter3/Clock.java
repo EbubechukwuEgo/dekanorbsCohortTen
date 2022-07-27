@@ -42,6 +42,6 @@ public class Clock {
     }
 
     public void displayTime(){
-        System.out.println("");
+        System.out.printf("hh:mm:ss: %d:%d:%d", hour, minute, second);
     }
 }

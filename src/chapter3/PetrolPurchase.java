@@ -58,7 +58,6 @@ public class PetrolPurchase {
     }
 
     public double getPurchaseAmount(){
-        double netPurchase = pricePerLitre * quantity;
-        return netPurchase;
+        return pricePerLitre * quantity;
     }
 }
