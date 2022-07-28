@@ -23,7 +23,6 @@ public class CAIMAN {
                 System.out.println("Very good!\nWant to try another question?");
                 askAnotherQuestion();
             } else {
-                tryAgain = true;
                 System.out.println("No please try again!");
                 System.out.printf("How much is %d times %d%n", primero, segundo);
                 solution = input.nextInt();
