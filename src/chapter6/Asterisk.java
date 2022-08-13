@@ -13,8 +13,13 @@ public class Asterisk {
     }
 
     private static void squareOfAsterisks(int number) {
-        int square = (int) Math.pow(number, 2);
-        String asterisks = String.valueOf(square);
-        System.out.println();
+//        int square = (int) Math.pow(number, 2);
+
+        for (int i = 0; i < number; i++){
+            System.out.print("\n");
+            for (int j = 0; j < number; j++){
+                System.out.print("* ");
+            }
+        }
     }
 }
